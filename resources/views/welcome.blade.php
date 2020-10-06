@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="/articles">Articles</a>
+                    <a href="api/articles">Articles</a>
                 </div>
             </div>
         </div>
