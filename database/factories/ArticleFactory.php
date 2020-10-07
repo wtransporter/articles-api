@@ -8,8 +8,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Article::class, function (Faker $faker) {
     return [
-        'user_id' => factory(User::class)->create(),
-        'title' => $faker->sentence(40),
+        'user_id' => factory(User::class),
+        'title' => $faker->sentence(5),
         'body' => $faker->paragraph
     ];
 });
