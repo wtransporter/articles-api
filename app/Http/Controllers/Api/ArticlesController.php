@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Article;
+use App\Http\Resources\Article as ArticleResource;
 
 class ArticlesController extends Controller
 {
@@ -14,7 +16,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
+        return ArticleResource::collection(Article::paginate(15));
     }
 
     /**
@@ -31,12 +33,12 @@ class ArticlesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Article $article
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        //
+        return new ArticleResource($article);
     }
 
     /**
@@ -54,11 +56,13 @@ class ArticlesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        //
+        if ($article->delete()) {
+            return new ArticleResource($article);
+        }
     }
 }
