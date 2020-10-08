@@ -18,7 +18,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        return ArticleResource::collection(Article::paginate(15));
+        return ArticleResource::collection(Article::all());
     }
 
     /**
@@ -54,10 +54,10 @@ class ArticlesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\ArticlesApiFormRequest  $request
+     * @param  \App\Http\Requests\ArticlesUpdateRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(ArticlesApiFormRequest $request)
+    public function update(ArticlesUpdateRequest $request)
     {
         $article = Article::findOrFail($request->input('article_id'));
         $article->update([

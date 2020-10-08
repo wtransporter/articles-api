@@ -11,7 +11,6 @@ class ArticlesStoreRequest extends ApiRequest
     {
         return [
             'user_id' => 'required|integer|exists:users,id',
-            'article_id' => 'required|integer|exists:articles,id',
             'title' => 'required|min:5',
             'body' => 'required|min:5',
         ];
