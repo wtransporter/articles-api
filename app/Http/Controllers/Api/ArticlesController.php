@@ -18,7 +18,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        return ArticleResource::collection(Article::all());
+        return ArticleResource::collection(Article::with('user')->get());
     }
 
     /**
@@ -48,7 +48,7 @@ class ArticlesController extends Controller
      */
     public function show(Article $article)
     {
-        return new ArticleResource($article);
+        return new ArticleResource($article->loadMissing('user'));
     }
 
     /**
