@@ -12,10 +12,10 @@ Run migrations (php artisan migrate). Seed database (php artisan db:seed).
 ## Api Endpoints
 
 - api/articles (get all articles)
-- api/article/{article} (get article by id)
+- api/article/{id} (get article by id)
 - api/article (update article by id)
 - api/articles (store new article)
-- api/article/{article} (delete article)
+- api/article/{id} (delete article by id)
 
 ## License
 
